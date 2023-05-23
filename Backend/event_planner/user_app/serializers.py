@@ -1,5 +1,13 @@
 from rest_framework import serializers, validators
 from .models import User
+from .models import Event
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Event
+        fields='_all_'
+
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
