@@ -1,9 +1,10 @@
+
 from rest_framework.decorators import api_view
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from knox.auth import AuthToken
 from rest_framework.response import Response
 from .serializers import UserSerializer
-
+from.serializers import Eventserializer
 @api_view(['POST'])
 def login_view(request):
     serializer = AuthTokenSerializer(data=request.data)
@@ -49,5 +50,9 @@ def register_view(request):
             },
         'token': token
         })
+@api_view(['GET'])
+def Event_view(request):
+    return Response ({
+       'event_info': '_all_'})
 
     
